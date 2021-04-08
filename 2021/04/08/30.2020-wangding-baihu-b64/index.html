@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="8gg">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="8gg">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>2020网鼎杯 白虎组 b64 精析 · 金风细雨楼</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >明月映空</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">2020网鼎杯 白虎组 b64 精析</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>明月映空</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg1.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            2020网鼎杯 白虎组 b64 精析
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "CTF,技术">CTF,技术</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1.6k</span>阅读时长: <span class="post-count reading-time">8 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2021/04/08</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="扯淡时间"><a href="#扯淡时间" class="headerlink" title="扯淡时间"></a>扯淡时间</h1><ol>
+<li><p>不懂出题的师傅是哪位，但猜测很大可能性不超过25岁。</p>
+</li>
+<li><p>最近又在搞CTF，但看着余弦等大佬都已转战区块链领域良久，不觉心慌慌，感觉自己再亿次被时代抛弃。</p>
+</li>
+</ol>
+<h1 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h1><p><img src="timu.png" alt="timu"></p>
+<p>题目很简练，类型：Crypto，最终解出人数是300队以内。<br>下载打开看是<br><img src="timu2.png" alt="timu2"></p>
+<blockquote>
+<p>密文:uLdAuO8duojAFLEKjIgdpfGeZoELjJp9kSieuIsAjJ/LpSXDuCGduouz<br>泄露的密文:pTjMwJ9WiQHfvC+eFCFKTBpWQtmgjopgqtmPjfKfjSmdFLpeFf/Aj2ud3tN7u2+enC9+nLN8kgdWo29ZnCrOFCDdFCrOFoF=<br>泄露的明文:ashlkj!@sj1223%^&amp;*Sd4564sd879s5d12f231a46qwjkd12J;DJjl;LjL;KJ8729128713</p>
+</blockquote>
+<p>几乎15分钟内就能看出，“泄露的密文”可能是个类似Base64的东西，把“泄露的明文”转换成base64编码看看：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">YXNobGtqIUBzajEyMjMlXiYqU2Q0NTY0c2Q4NzlzNWQxMmYyMzFhNDZxd2prZDEySjtESmpsO0xqTDtLSjg3MjkxMjg3MTM&#x3D;</span><br></pre></td></tr></table></figure>
+<p>注意：FoF=和MTM=<br>与泄露的密文对比后发现最后四位长得很像，猜测最后3位的加密过程肯定是M—&gt;F,T—-&gt;o。</p>
+<p>初步想法是先把“密文”按照替换法替换成明文（要注意Excel某些时候不区分大小写，不要直接Vlookup）：</p>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=<span class="built_in">LOOKUP</span>(<span class="number">1</span>,<span class="number">0</span>/<span class="built_in">EXACT</span>(<span class="symbol">A:A</span>,<span class="symbol">D2</span>),<span class="symbol">B:B</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="excel1.png" alt="excel1"></p>
+<p>明文的前半部分是不是很熟？基本上flag 的base64开头就是ZmxhZ<br>base64解码：flag{1e3a2。那接下来就很明显了。爆破下面六个字符对应的字母就可以了。<br>EIGsXz<br><img src="excel2.png" alt="excel2"></p>
+<h1 id="爆破"><a href="#爆破" class="headerlink" title="爆破"></a>爆破</h1><h2 id="字典构造"><a href="#字典构造" class="headerlink" title="字典构造"></a>字典构造</h2><p>我们知道base64的字典一般是大小写字母和数字，加号和斜杠组成（共计64个）<br>如果用python写就是</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line">string.letters+string.digits+<span class="string">&#x27;+/&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>这个字典里要去掉参考明文的所有字母（这里需要思考一下），原因是：<br>参考密文当中不包含EIGsXz，假如 EIGsXz作为密文，明文肯定不是参考明文当中的字符。<br>所以字典64个字符要减掉参考明文中42个字符（注：不可用Excel 的自动去重功能，因为没区分大小写），共计22个。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#用未被映射的字符构造字典</span></span><br><span class="line">newDic= <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> dic:</span><br><span class="line">    <span class="keyword">if</span>(x <span class="keyword">not</span> <span class="keyword">in</span> b ):</span><br><span class="line">        newDic+=x</span><br></pre></td></tr></table></figure>
+
+<h2 id="python解析base64"><a href="#python解析base64" class="headerlink" title="python解析base64"></a>python解析base64</h2><p>同时又知道python有个解base64的包。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line">base64.b64decode(<span class="string">&#x27;ZmxhZ3sxZTNhMm&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="进度条"><a href="#进度条" class="headerlink" title="进度条"></a>进度条</h2><p>所以可以直接爆破了（引入个进度条，不然等待很绝望）记得要是</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install progressbar2。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bar = progressbar.ProgressBar(max_value=scipy.special.perm(<span class="built_in">len</span>(newDic),<span class="built_in">len</span>(unknow)))</span><br></pre></td></tr></table></figure>
+
+<h2 id="爆破核心代码"><a href="#爆破核心代码" class="headerlink" title="爆破核心代码"></a>爆破核心代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">dic1=newDic</span><br><span class="line"><span class="keyword">for</span> E <span class="keyword">in</span> newDic:</span><br><span class="line">    dic2=dic1.replace(E,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> G <span class="keyword">in</span> dic2:</span><br><span class="line">        dic3=dic2.replace(G,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        <span class="keyword">for</span> I <span class="keyword">in</span> dic3:</span><br><span class="line">            dic4=dic3.replace(I,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">            <span class="keyword">for</span> s <span class="keyword">in</span> dic4: </span><br><span class="line">                dic5=dic4.replace(s,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">                <span class="keyword">for</span> X <span class="keyword">in</span> dic5:</span><br><span class="line">                    dic6=dic5.replace(X,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">                    <span class="keyword">for</span> z <span class="keyword">in</span> dic6:</span><br><span class="line">                        result=<span class="string">&#x27;ZmxhZ3sxZTNhMm&#123;E&#125;lN&#123;I&#125;0xYz&#123;G&#125;yLT&#123;E&#125;mNGYtOWIyZ&#123;I&#125;&#123;s&#125;hNGFmYW&#123;X&#125;kZj&#123;G&#125;xZTZ&#123;z&#125;&#x27;</span>.<span class="built_in">format</span>(E=E,G=G,I=I,s=s,X=X,z=z)</span><br><span class="line">                        <span class="comment">#  &#x27;.............    . E .. I .... G ... E .........  .Is.....    .X ... G......z&#x27;</span></span><br><span class="line">                        <span class="comment">#       ZmxhZ3sxZTNhMm&#123;E&#125;lN&#123;I&#125;0xYz&#123;G&#125;yLT&#123;E&#125;mNGYtOWIyZ&#123;I&#125;&#123;s&#125;hNGFmYW&#123;X&#125;kZj&#123;G&#125;xZTZ&#123;z&#125;</span></span><br><span class="line">                        count+=<span class="number">1</span></span><br><span class="line">                        <span class="comment">#进度条</span></span><br><span class="line">                        bar.update(count)</span><br><span class="line">                        combineAndDecode(result)</span><br></pre></td></tr></table></figure>
+<h2 id="排列组合"><a href="#排列组合" class="headerlink" title="排列组合"></a>排列组合</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scipy.special.perm(<span class="built_in">len</span>(newDic),<span class="built_in">len</span>(unknow))</span><br></pre></td></tr></table></figure>
+<p>这一串是排列的意思，其实就是A22,6（22个字符中选择6个，有53721360种可能）。这个数字用于设计进度条。<br><img src="cmd1.png" alt="cmd1"></p>
+<h2 id="正则验证"><a href="#正则验证" class="headerlink" title="正则验证"></a>正则验证</h2><p>然后再写个正则验证flag的符合性（根据其他题的flag，格式一般是）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">re.findall(<span class="string">r&#x27;flag&#123;\w&#123;8&#125;-\w&#123;4&#125;-\w&#123;4&#125;-\w&#123;4&#125;-\w&#123;12&#125;&#125;&#x27;</span>,flag)</span><br></pre></td></tr></table></figure>
+
+<h2 id="字符串加工"><a href="#字符串加工" class="headerlink" title="字符串加工"></a>字符串加工</h2><p>因为要打出以下这串：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZmxhZ3sxZTNhMm&#123;E&#125;lN&#123;I&#125;0xYz&#123;G&#125;yLT&#123;E&#125;mNGYtOWIyZ&#123;I&#125;&#123;s&#125;hNGFmYW&#123;X&#125;kZj&#123;G&#125;xZTZ&#123;z&#125;</span><br></pre></td></tr></table></figure>
+<p>所以加了个代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> m:    </span><br><span class="line">    <span class="keyword">if</span> (a.find(x)==-<span class="number">1</span>):</span><br><span class="line">        n+=<span class="string">&#x27;&#123;&#x27;</span>+x+<span class="string">&#x27;&#125;&#x27;</span></span><br><span class="line">        unknow+=x</span><br><span class="line">        maskM+=x</span><br></pre></td></tr></table></figure>
+
+<h2 id="最终代码"><a href="#最终代码" class="headerlink" title="最终代码"></a>最终代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> progressbar</span><br><span class="line"><span class="keyword">import</span> scipy.special</span><br><span class="line">reload(sys)</span><br><span class="line">sys.setdefaultencoding(<span class="string">&#x27;utf8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#a(cypher_base64)---&gt;b(plain_base64)</span></span><br><span class="line">a=<span class="string">&#x27;pTjMwJ9WiQHfvC+eFCFKTBpWQtmgjopgqtmPjfKfjSmdFLpeFf/Aj2ud3tN7u2+enC9+nLN8kgdWo29ZnCrOFCDdFCrOFoF=&#x27;</span></span><br><span class="line">b=<span class="string">&#x27;YXNobGtqIUBzajEyMjMlXiYqU2Q0NTY0c2Q4NzlzNWQxMmYyMzFhNDZxd2prZDEySjtESmpsO0xqTDtLSjg3MjkxMjg3MTM=&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#m(cypher_base64)---&gt;n(target_base64)</span></span><br><span class="line">m=<span class="string">&#x27;uLdAuO8duojAFLEKjIgdpfGeZoELjJp9kSieuIsAjJ/LpSXDuCGduouz&#x27;</span></span><br><span class="line"><span class="comment">#  ZmxhZ3sxZTNhMm.lN.0xYz.yLT.mNGYtOWIyZ..hNGFmYW.kZj.xZTZ.</span></span><br><span class="line"></span><br><span class="line">n=<span class="string">&#x27;&#x27;</span></span><br><span class="line">maskM=<span class="string">&#x27;&#x27;</span></span><br><span class="line">unknow=<span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dic=string.letters+string.digits+<span class="string">&#x27;+&#x27;</span>+<span class="string">&#x27;/&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#用未被映射的字符构造字典</span></span><br><span class="line">newDic= <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> dic:</span><br><span class="line">    <span class="keyword">if</span>(x <span class="keyword">not</span> <span class="keyword">in</span> b ):</span><br><span class="line">        newDic+=x</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;newDic:&quot;</span>+<span class="built_in">str</span>(<span class="built_in">len</span>(newDic))</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;newDic:&quot;</span>+newDic</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> m:    </span><br><span class="line">    <span class="keyword">if</span> (a.find(x)==-<span class="number">1</span>):</span><br><span class="line">        n+=<span class="string">&#x27;&#123;&#x27;</span>+x+<span class="string">&#x27;&#125;&#x27;</span></span><br><span class="line">        unknow+=x</span><br><span class="line">        maskM+=x</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        n+=b[a.find(x)]</span><br><span class="line">        maskM+=<span class="string">&#x27;.&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> m</span><br><span class="line"><span class="built_in">print</span> maskM</span><br><span class="line"><span class="built_in">print</span> n</span><br><span class="line"><span class="comment">#未知字符</span></span><br><span class="line">unknow= <span class="string">&quot;&quot;</span>.join(<span class="built_in">set</span>(<span class="built_in">list</span>(unknow)))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">combineAndDecode</span>(<span class="params">result</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        flag=base64.b64decode(result)</span><br><span class="line">        <span class="comment">#flag=&#x27;flag&#123;1e3a2de4-1c02-4f4f-9b2d-a4afabdf01e6&#125;&#x27;</span></span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> flag:</span><br><span class="line">            <span class="keyword">if</span>(x <span class="keyword">not</span> <span class="keyword">in</span> string.printable):</span><br><span class="line">                flag=<span class="string">&#x27;&#x27;</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">len</span>(re.findall(<span class="string">r&#x27;flag&#123;\w&#123;8&#125;-\w&#123;4&#125;-\w&#123;4&#125;-\w&#123;4&#125;-\w&#123;12&#125;&#125;&#x27;</span>,flag))&gt;<span class="number">0</span>):</span><br><span class="line">            <span class="comment">#print flag</span></span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;results.txt&#x27;</span>,<span class="string">&#x27;a+&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                f.write(result+<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">                f.write(flag+<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">            <span class="comment">#pass</span></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">        </span><br><span class="line">    </span><br><span class="line">count=<span class="number">0</span></span><br><span class="line">bar = progressbar.ProgressBar(max_value=scipy.special.perm(<span class="built_in">len</span>(newDic),<span class="built_in">len</span>(unknow)))</span><br><span class="line"></span><br><span class="line">dic1=newDic</span><br><span class="line"><span class="keyword">for</span> E <span class="keyword">in</span> newDic:</span><br><span class="line">    dic2=dic1.replace(E,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> G <span class="keyword">in</span> dic2:</span><br><span class="line">        dic3=dic2.replace(G,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        <span class="keyword">for</span> I <span class="keyword">in</span> dic3:</span><br><span class="line">            dic4=dic3.replace(I,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">            <span class="keyword">for</span> s <span class="keyword">in</span> dic4: </span><br><span class="line">                dic5=dic4.replace(s,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">                <span class="keyword">for</span> X <span class="keyword">in</span> dic5:</span><br><span class="line">                    dic6=dic5.replace(X,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">                    <span class="keyword">for</span> z <span class="keyword">in</span> dic6:</span><br><span class="line">                        result=<span class="string">&#x27;ZmxhZ3sxZTNhMm&#123;E&#125;lN&#123;I&#125;0xYz&#123;G&#125;yLT&#123;E&#125;mNGYtOWIyZ&#123;I&#125;&#123;s&#125;hNGFmYW&#123;X&#125;kZj&#123;G&#125;xZTZ&#123;z&#125;&#x27;</span>.<span class="built_in">format</span>(E=E,G=G,I=I,s=s,X=X,z=z)</span><br><span class="line">                        <span class="comment">#  &#x27;.............    . E .. I .... G ... E .........  .Is.....    .X ... G......z&#x27;</span></span><br><span class="line">                        <span class="comment">#       ZmxhZ3sxZTNhMm&#123;E&#125;lN&#123;I&#125;0xYz&#123;G&#125;yLT&#123;E&#125;mNGYtOWIyZ&#123;I&#125;&#123;s&#125;hNGFmYW&#123;X&#125;kZj&#123;G&#125;xZTZ&#123;z&#125;</span></span><br><span class="line">                        </span><br><span class="line">                        count+=<span class="number">1</span></span><br><span class="line">                        <span class="comment">#进度条</span></span><br><span class="line">                        bar.update(count)</span><br><span class="line">                        combineAndDecode(result)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>跑的效果是这样：<br><img src="cmd2.png" alt="cmd2"></p>
+<p>大概5分钟内能跑完。</p>
+<h1 id="最终结果-21-flag-："><a href="#最终结果-21-flag-：" class="headerlink" title="最终结果(21 flag)："></a>最终结果(21 flag)：</h1><p>（共计可能有21个flag）</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">ZmxhZ3sxZTNhMmJlNC0xYzAyLTJmNGYtOWIyZC1hNGFmYWRkZjAxZTZ9</span><br><span class="line">flag&#123;1e3a2be4-1c02-2f4f-9b2d-a4afaddf01e6&#125;</span><br><span class="line">ZmxhZ3sxZTNhMmJlNC0xYzAyLTJmNGYtOWIyZC1hNGFmYWVkZjAxZTZ9</span><br><span class="line">flag&#123;1e3a2be4-1c02-2f4f-9b2d-a4afaedf01e6&#125;</span><br><span class="line">ZmxhZ3sxZTNhMmJlNC0xYzAyLTJmNGYtOWIyZC1hNGFmYW5kZjAxZTZ9</span><br><span class="line">flag&#123;1e3a2be4-1c02-2f4f-9b2d-a4afandf01e6&#125;</span><br><span class="line">ZmxhZ3sxZTNhMmJlNC0xYzRyLTJmNGYtOWIyZC1hNGFmYWVkZjRxZTZ9</span><br><span class="line">flag&#123;1e3a2be4-1c4r-2f4f-9b2d-a4afaedf4qe6&#125;</span><br><span class="line">ZmxhZ3sxZTNhMmJlNC0xYzRyLTJmNGYtOWIyZC1hNGFmYW5kZjRxZTZ9</span><br><span class="line">flag&#123;1e3a2be4-1c4r-2f4f-9b2d-a4afandf4qe6&#125;</span><br><span class="line">ZmxhZ3sxZTNhMmJlNC0xYzVyLTJmNGYtOWIyZC1hNGFmYWRkZjVxZTZ9</span><br><span class="line">flag&#123;1e3a2be4-1c5r-2f4f-9b2d-a4afaddf5qe6&#125;</span><br><span class="line">ZmxhZ3sxZTNhMmJlNC0xYzVyLTJmNGYtOWIyZC1hNGFmYW5kZjVxZTZ9</span><br><span class="line">flag&#123;1e3a2be4-1c5r-2f4f-9b2d-a4afandf5qe6&#125;</span><br><span class="line">ZmxhZ3sxZTNhMmRlNC0xYzAyLTRmNGYtOWIyZC1hNGFmYWJkZjAxZTZ9</span><br><span class="line">flag&#123;1e3a2de4-1c02-4f4f-9b2d-a4afabdf01e6&#125;</span><br><span class="line">ZmxhZ3sxZTNhMmRlNC0xYzAyLTRmNGYtOWIyZC1hNGFmYWVkZjAxZTZ9</span><br><span class="line">flag&#123;1e3a2de4-1c02-4f4f-9b2d-a4afaedf01e6&#125;</span><br><span class="line">ZmxhZ3sxZTNhMmRlNC0xYzAyLTRmNGYtOWIyZC1hNGFmYW5kZjAxZTZ9</span><br><span class="line">flag&#123;1e3a2de4-1c02-4f4f-9b2d-a4afandf01e6&#125;</span><br><span class="line">ZmxhZ3sxZTNhMmRlNC0xYzJyLTRmNGYtOWIyZC1hNGFmYWVkZjJxZTZ9</span><br><span class="line">flag&#123;1e3a2de4-1c2r-4f4f-9b2d-a4afaedf2qe6&#125;</span><br><span class="line">ZmxhZ3sxZTNhMmRlNC0xYzJyLTRmNGYtOWIyZC1hNGFmYW5kZjJxZTZ9</span><br><span class="line">flag&#123;1e3a2de4-1c2r-4f4f-9b2d-a4afandf2qe6&#125;</span><br><span class="line">ZmxhZ3sxZTNhMmRlNC0xYzVyLTRmNGYtOWIyZC1hNGFmYWJkZjVxZTZ9</span><br><span class="line">flag&#123;1e3a2de4-1c5r-4f4f-9b2d-a4afabdf5qe6&#125;</span><br><span class="line">ZmxhZ3sxZTNhMmRlNC0xYzVyLTRmNGYtOWIyZC1hNGFmYW5kZjVxZTZ9</span><br><span class="line">flag&#123;1e3a2de4-1c5r-4f4f-9b2d-a4afandf5qe6&#125;</span><br><span class="line">ZmxhZ3sxZTNhMmVlNC0xYzAyLTVmNGYtOWIyZC1hNGFmYWJkZjAxZTZ9</span><br><span class="line">flag&#123;1e3a2ee4-1c02-5f4f-9b2d-a4afabdf01e6&#125;</span><br><span class="line">ZmxhZ3sxZTNhMmVlNC0xYzAyLTVmNGYtOWIyZC1hNGFmYWRkZjAxZTZ9</span><br><span class="line">flag&#123;1e3a2ee4-1c02-5f4f-9b2d-a4afaddf01e6&#125;</span><br><span class="line">ZmxhZ3sxZTNhMmVlNC0xYzAyLTVmNGYtOWIyZC1hNGFmYW5kZjAxZTZ9</span><br><span class="line">flag&#123;1e3a2ee4-1c02-5f4f-9b2d-a4afandf01e6&#125;</span><br><span class="line">ZmxhZ3sxZTNhMmVlNC0xYzJyLTVmNGYtOWIyZC1hNGFmYWRkZjJxZTZ9</span><br><span class="line">flag&#123;1e3a2ee4-1c2r-5f4f-9b2d-a4afaddf2qe6&#125;</span><br><span class="line">ZmxhZ3sxZTNhMmVlNC0xYzJyLTVmNGYtOWIyZC1hNGFmYW5kZjJxZTZ9</span><br><span class="line">flag&#123;1e3a2ee4-1c2r-5f4f-9b2d-a4afandf2qe6&#125;</span><br><span class="line">ZmxhZ3sxZTNhMmVlNC0xYzRyLTVmNGYtOWIyZC1hNGFmYWJkZjRxZTZ9</span><br><span class="line">flag&#123;1e3a2ee4-1c4r-5f4f-9b2d-a4afabdf4qe6&#125;</span><br><span class="line">ZmxhZ3sxZTNhMmVlNC0xYzRyLTVmNGYtOWIyZC1hNGFmYW5kZjRxZTZ9</span><br><span class="line">flag&#123;1e3a2ee4-1c4r-5f4f-9b2d-a4afandf4qe6&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>要解这题门道还是挺多的，以下方面要快速知道并投入使用：<br>1、 python解base64<br>2、正则表达式<br>3、字符串快速转置去重分析<br>4、进度条设计<br>5、排列组合知识</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p>VLOOKUP函数不能区分大小写，该如何查找匹配？<br><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/news/594528">https://cloud.tencent.com/developer/news/594528</a></p>
+
+    </article>
+    <!-- license  -->
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2022/07/20/To-Do-List/" title= "To Do List">
+                    <div class="nextTitle">To Do List</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2021/04/08/29.2021-rewriting/" title= "2021-rewriting.md">
+                    <div class="prevTitle">2021-rewriting.md</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:12345@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/8gg" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%AF%E6%B7%A1%E6%97%B6%E9%97%B4"><span class="toc-number">1.</span> <span class="toc-text">扯淡时间</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">题目分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%88%86%E7%A0%B4"><span class="toc-number">3.</span> <span class="toc-text">爆破</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%E6%9E%84%E9%80%A0"><span class="toc-number">3.1.</span> <span class="toc-text">字典构造</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python%E8%A7%A3%E6%9E%90base64"><span class="toc-number">3.2.</span> <span class="toc-text">python解析base64</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E5%BA%A6%E6%9D%A1"><span class="toc-number">3.3.</span> <span class="toc-text">进度条</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%88%86%E7%A0%B4%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81"><span class="toc-number">3.4.</span> <span class="toc-text">爆破核心代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88"><span class="toc-number">3.5.</span> <span class="toc-text">排列组合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E9%AA%8C%E8%AF%81"><span class="toc-number">3.6.</span> <span class="toc-text">正则验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A0%E5%B7%A5"><span class="toc-number">3.7.</span> <span class="toc-text">字符串加工</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%BB%88%E4%BB%A3%E7%A0%81"><span class="toc-number">3.8.</span> <span class="toc-text">最终代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E7%BB%88%E7%BB%93%E6%9E%9C-21-flag-%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">最终结果(21 flag)：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">6.</span> <span class="toc-text">参考链接</span></a></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 34
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2022 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/2022/07/20/To-Do-List/" >To Do List</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2021 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2021/04/08/30.2020-wangding-baihu-b64/" >2020网鼎杯 白虎组 b64 精析</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2021/04/08/29.2021-rewriting/" >2021-rewriting.md</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/07</span><a class="archive-post-title" href= "/2021/04/07/hello-world/" >Hello World</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/28.October-Summary/" >October Summary(Focus on Json Processing and Regular Expressions)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/17</span><a class="archive-post-title" href= "/2019/10/17/6.Story-of-buying-computer/" >买华硕飞行堡垒的故事</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2019/10/15/27.Is-coding-useless/" >写代码到底有没有用？顺便回顾下自己的技术栈</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/08</span><a class="archive-post-title" href= "/2019/10/08/26.September-Summary/" >September Summary(Focus on Nothing)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/29</span><a class="archive-post-title" href= "/2019/09/29/25.The-Most-Dangerous-Writing-App/" >世界上最危险的编辑器（APP推荐）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/01</span><a class="archive-post-title" href= "/2019/09/01/24.August-Summary/" >August Summary(Focus on CTF surfacing)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/22</span><a class="archive-post-title" href= "/2019/08/22/23.kanxue-ollydbg/" >看雪ollydbg教程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/15</span><a class="archive-post-title" href= "/2019/08/15/22.education_src/" >教育行业漏洞报告平台（兼谈高校专业课老师的作用）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/14</span><a class="archive-post-title" href= "/2019/08/14/21.linux-ssh-shell-find/" >知道ip，如何猜它ssh端口</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/06</span><a class="archive-post-title" href= "/2019/08/06/19.sleep-in-js/" >JS当中的sleep</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/06</span><a class="archive-post-title" href= "/2019/08/06/20.combine-sheets-in-excel/" >Excel当中的各个sheet合并</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/05</span><a class="archive-post-title" href= "/2019/08/05/18.cut-videos-with-ffmpeg/" >Centos7 安装ffmpeg用来切分、压缩视频</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/02</span><a class="archive-post-title" href= "/2019/08/02/17.July-Summary/" >July Summary(Focus on English learning)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/02</span><a class="archive-post-title" href= "/2019/08/02/16.hexo-pic/" >Hexo载入图片</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/01</span><a class="archive-post-title" href= "/2019/08/01/15.hexo_theme/" >Hexo主题Archer配色</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/30</span><a class="archive-post-title" href= "/2019/07/30/14.play_with_docker/" >docker折腾手记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/29</span><a class="archive-post-title" href= "/2019/07/29/13.why-programmers-like-to-share/" >why programmers like to share</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2019/07/26/12.chrome-extension-crx-study/" >chrome扩展程序研究(POST_MAN)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2019/07/26/11.who-is-hero/" >说英雄，谁是英雄</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/25</span><a class="archive-post-title" href= "/2019/07/25/10.the-thing-of-job/" >工作这点破事</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/25</span><a class="archive-post-title" href= "/2019/07/25/9.tampermonkey-on-VUE/" >解决了VUE前端上面的Tampermonkey自动填充编写</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/23</span><a class="archive-post-title" href= "/2019/07/23/8.low-class-problems-and-stupid-problems/" >低端问题和傻*问题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/2019/07/20/7.Simple-httpServer/" >Python的SimpleHTTPServer让文件夹秒变多线程服务器</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/2019/07/20/EnglishLearning/how-I-became-David-Deangelo-The-PUA/" >how I became David Deangelo The PUA</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2019/07/19/5.how-to-use-github/" >怎么使用github</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2019/07/19/EnglishLearning/1-Eng-learn-words-start-with-A/" >1.Eng learn words start with A</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2019/07/19/4.personal-internet-experience/" >个人电子计算机互联网经验史</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/14</span><a class="archive-post-title" href= "/2019/07/14/2.hexo_setup_experience/" >hexo博客折腾记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/14</span><a class="archive-post-title" href= "/2019/07/14/3.time_as_a_friend/" >把时间当作朋友</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/13</span><a class="archive-post-title" href= "/2019/07/13/1.a-40-years-old-beginner/" >一个40岁的新人</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="tampermonkey,VUE,欺骗"><span class="iconfont-archer">&#xe606;</span>tampermonkey,VUE,欺骗</span>
+    
+        <span class="sidebar-tag-name" data-tags="crx,extension,扩展"><span class="iconfont-archer">&#xe606;</span>crx,extension,扩展</span>
+    
+        <span class="sidebar-tag-name" data-tags="时间,time"><span class="iconfont-archer">&#xe606;</span>时间,time</span>
+    
+        <span class="sidebar-tag-name" data-tags="hexo,github,node,前端,ssh"><span class="iconfont-archer">&#xe606;</span>hexo,github,node,前端,ssh</span>
+    
+        <span class="sidebar-tag-name" data-tags="Hexo,主题,配色"><span class="iconfont-archer">&#xe606;</span>Hexo,主题,配色</span>
+    
+        <span class="sidebar-tag-name" data-tags="小说,王小石,白愁飞,苏梦枕"><span class="iconfont-archer">&#xe606;</span>小说,王小石,白愁飞,苏梦枕</span>
+    
+        <span class="sidebar-tag-name" data-tags="July,Summary"><span class="iconfont-archer">&#xe606;</span>July,Summary</span>
+    
+        <span class="sidebar-tag-name" data-tags="mdwa,编辑器,life-hack"><span class="iconfont-archer">&#xe606;</span>mdwa,编辑器,life-hack</span>
+    
+        <span class="sidebar-tag-name" data-tags="hexo,图片"><span class="iconfont-archer">&#xe606;</span>hexo,图片</span>
+    
+        <span class="sidebar-tag-name" data-tags="Coding,人参指南,技术栈"><span class="iconfont-archer">&#xe606;</span>Coding,人参指南,技术栈</span>
+    
+        <span class="sidebar-tag-name" data-tags="互联网,历史,自传"><span class="iconfont-archer">&#xe606;</span>互联网,历史,自传</span>
+    
+        <span class="sidebar-tag-name" data-tags="github"><span class="iconfont-archer">&#xe606;</span>github</span>
+    
+        <span class="sidebar-tag-name" data-tags="docker,入门"><span class="iconfont-archer">&#xe606;</span>docker,入门</span>
+    
+        <span class="sidebar-tag-name" data-tags="src,高校,计算机专业课,大学"><span class="iconfont-archer">&#xe606;</span>src,高校,计算机专业课,大学</span>
+    
+        <span class="sidebar-tag-name" data-tags="programmers,share"><span class="iconfont-archer">&#xe606;</span>programmers,share</span>
+    
+        <span class="sidebar-tag-name" data-tags="ssh,linux"><span class="iconfont-archer">&#xe606;</span>ssh,linux</span>
+    
+        <span class="sidebar-tag-name" data-tags="ollydbg,逆向"><span class="iconfont-archer">&#xe606;</span>ollydbg,逆向</span>
+    
+        <span class="sidebar-tag-name" data-tags="sb,old,programmer,老人家,老程序员,aging"><span class="iconfont-archer">&#xe606;</span>sb,old,programmer,老人家,老程序员,aging</span>
+    
+        <span class="sidebar-tag-name" data-tags="工作,摸鱼,程序员,IT"><span class="iconfont-archer">&#xe606;</span>工作,摸鱼,程序员,IT</span>
+    
+        <span class="sidebar-tag-name" data-tags="买电脑,故事"><span class="iconfont-archer">&#xe606;</span>买电脑,故事</span>
+    
+        <span class="sidebar-tag-name" data-tags="vps,python, 文件下载"><span class="iconfont-archer">&#xe606;</span>vps,python, 文件下载</span>
+    
+        <span class="sidebar-tag-name" data-tags="todo"><span class="iconfont-archer">&#xe606;</span>todo</span>
+    
+        <span class="sidebar-tag-name" data-tags="October,Summary"><span class="iconfont-archer">&#xe606;</span>October,Summary</span>
+    
+        <span class="sidebar-tag-name" data-tags="English,Learning"><span class="iconfont-archer">&#xe606;</span>English,Learning</span>
+    
+        <span class="sidebar-tag-name" data-tags="English,Learning,PUA,David,Deangelo"><span class="iconfont-archer">&#xe606;</span>English,Learning,PUA,David,Deangelo</span>
+    
+        <span class="sidebar-tag-name" data-tags="ffmpeg,Centos7,视频切分,视频压缩"><span class="iconfont-archer">&#xe606;</span>ffmpeg,Centos7,视频切分,视频压缩</span>
+    
+        <span class="sidebar-tag-name" data-tags="javascript,sleep"><span class="iconfont-archer">&#xe606;</span>javascript,sleep</span>
+    
+        <span class="sidebar-tag-name" data-tags="Excel,sheet,合并"><span class="iconfont-archer">&#xe606;</span>Excel,sheet,合并</span>
+    
+        <span class="sidebar-tag-name" data-tags="August,Summary"><span class="iconfont-archer">&#xe606;</span>August,Summary</span>
+    
+        <span class="sidebar-tag-name" data-tags="September,Summary"><span class="iconfont-archer">&#xe606;</span>September,Summary</span>
+    
+        <span class="sidebar-tag-name" data-tags="续"><span class="iconfont-archer">&#xe606;</span>续</span>
+    
+        <span class="sidebar-tag-name" data-tags="阶层,跃迁,低端问题"><span class="iconfont-archer">&#xe606;</span>阶层,跃迁,低端问题</span>
+    
+        <span class="sidebar-tag-name" data-tags="CTF,技术"><span class="iconfont-archer">&#xe606;</span>CTF,技术</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="微技术扯淡"><span class="iconfont-archer">&#xe60a;</span>微技术扯淡</span>
+    
+        <span class="sidebar-category-name" data-categories="扯淡"><span class="iconfont-archer">&#xe60a;</span>扯淡</span>
+    
+        <span class="sidebar-category-name" data-categories="技术"><span class="iconfont-archer">&#xe60a;</span>技术</span>
+    
+        <span class="sidebar-category-name" data-categories="English"><span class="iconfont-archer">&#xe60a;</span>English</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "8gg"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+

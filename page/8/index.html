@@ -359,6 +359,39 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/26/12.chrome-extension-crx-study/" >
+            
+                <span>chrome扩展程序研究(POST_MAN)</span>
+        </a>
+        <div class="abstract-content">
+            想要自己开发一个扩展，但不知道开发什么，果然还是没有强烈的痛点就不会动。我肯定是个痛点驱动的人。
+扩展开发其实扩展开发只要抓住manifest.json文件作为抓手，去开发。扩展程序本质上就是一个文件夹，里面有若干文件，最不可缺少的就是manifest.json文件，因为chrome会读取这个文件，查看里面的配置，以及扩展相关的页面。
+这样就能开发了，后面本质上还是代码的堆砌，以及对chrome浏览器的熟知程度，比如要熟悉使用chrome自带的API之类的。
+大概猜测也能知道这些API基本上就是操作已经打开的网页页面（Tabs）之类的东西。
+由于没有什么痛点和目标，所以chrome插件只...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/26</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "crx,extension,扩展">crx,extension,扩展</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/07/26/11.who-is-hero/" >
             
                 <span>说英雄，谁是英雄</span>
@@ -393,7 +426,7 @@ height:50vh;
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/25/10.the-fucking-thing-of-job/" >
+        <a class="abstract-title" href = "/2019/07/25/10.the-thing-of-job/" >
             
                 <span>工作这点破事</span>
         </a>
@@ -420,47 +453,10 @@ height:50vh;
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/07/25/9.tampermonkey-on-VUE/" >
-            
-                <span>解决了VUE前端上面的Tampermonkey自动填充编写</span>
-        </a>
-        <div class="abstract-content">
-            前言这个问题困了我好久，起因是我喜欢用tampermonkey编写一些自动填充的脚本。
-一般的网页，就是
-1document.getElementById(&quot;YourID&quot;).value= &quot;XXXX&quot;;
-
-或者
-1$(&quot;#yourid&quot;).value=&quot;xxx&quot;;
-
-就行了，没想到去修改VUE网页的，直接就是刚把值修改完，点击提交，框里的值瞬间又没了。令人崩溃，所以就开始研究VUE。到现在也没研究出VUE是什么原理，大概知道，它有点前端 数据驱动的意思，表面的DOM只是展示的，只有后面的数据才是真正的。
-后...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "tampermonkey,VUE,欺骗">tampermonkey,VUE,欺骗</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/page/7/">&amp;#60; PREV</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/9/">NEXT &amp;#62;</a>
+        <a class="extend prev" rel="prev" href="/page/7/">&amp;#60; PREV</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/9/">NEXT &amp;#62;</a>
     </nav>
     
 </main>
@@ -1118,9 +1114,24 @@ height:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 33
+        Total : 34
         </div>
         <!-- search  -->
         
@@ -1147,6 +1158,11 @@ height:50vh;
     
     <div class="archive-year"> 2021 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2021/04/08/30.2020-wangding-baihu-b64/" >2020网鼎杯 白虎组 b64 精析</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1264,7 +1280,7 @@ height:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/25</span><a class="archive-post-title" href= "/2019/07/25/10.the-fucking-thing-of-job/" >工作这点破事</a>
+            <span class="archive-post-date">07/25</span><a class="archive-post-title" href= "/2019/07/25/10.the-thing-of-job/" >工作这点破事</a>
         </li>
     
     
@@ -1385,6 +1401,8 @@ height:50vh;
         <span class="sidebar-tag-name" data-tags="续"><span class="iconfont-archer">&#xe606;</span>续</span>
     
         <span class="sidebar-tag-name" data-tags="阶层,跃迁,低端问题"><span class="iconfont-archer">&#xe606;</span>阶层,跃迁,低端问题</span>
+    
+        <span class="sidebar-tag-name" data-tags="CTF,技术"><span class="iconfont-archer">&#xe606;</span>CTF,技术</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>

@@ -359,6 +359,45 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/08/14/21.linux-ssh-shell-find/" >
+            
+                <span>知道ip，如何猜它ssh端口</span>
+        </a>
+        <div class="abstract-content">
+            背景知道一个IP，但是不知道它ssh端口开在哪里，怎么搞？
+目前解法先用masscan扫一下它的开放端口
+1masscan.exe 192.168.1.1 --ports 0-65535 --rate=10000
+
+获取开放端口后，刚好windows10有个ssh命令
+直接
+1ssh -p10000   192.168.1.1
+
+通了就说明开了。
+这种做法有点半手工，可能有更好的方法，但是目前没有搜索到。
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/14</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "ssh,linux">ssh,linux</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/08/06/19.sleep-in-js/" >
             
                 <span>JS当中的sleep</span>
@@ -427,44 +466,10 @@ height:50vh;
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/05/18.cut-videos-with-ffmpeg/" >
-            
-                <span>Centos7 安装ffmpeg用来切分、压缩视频</span>
-        </a>
-        <div class="abstract-content">
-            ffmpeg是什么鬼因为实际上我也不知道ffmpeg是什么鬼。我只知道想用它来把一段长视频切成几段。大概清楚它是一个开源的、挺强大的视频处理软件。
-官网地址：https://ffmpeg.org/
-为什么要搞这个我用VPS下载了一些视频来学英语，但是视频太大，我一次就切个2分钟来听，比较容易消化。
-安装一般会认为直接 yum install ffmpeg就行了，但实际上不行，会报错。
-错误安装方法网络上很流行的一个错误的安装方法（至少在我的机器上不管用）：https://www.vultr.com/docs/how-to-install-ffmpeg-on-centos
-按照这种做法，到...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/05</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ffmpeg,Centos7,视频切分,视频压缩">ffmpeg,Centos7,视频切分,视频压缩</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/page/4/">&amp;#60; PREV</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/6/">NEXT &amp;#62;</a>
+        <a class="extend prev" rel="prev" href="/page/4/">&amp;#60; PREV</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/6/">NEXT &amp;#62;</a>
     </nav>
     
 </main>
@@ -1122,9 +1127,24 @@ height:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 33
+        Total : 34
         </div>
         <!-- search  -->
         
@@ -1151,6 +1171,11 @@ height:50vh;
     
     <div class="archive-year"> 2021 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2021/04/08/30.2020-wangding-baihu-b64/" >2020网鼎杯 白虎组 b64 精析</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1268,7 +1293,7 @@ height:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/25</span><a class="archive-post-title" href= "/2019/07/25/10.the-fucking-thing-of-job/" >工作这点破事</a>
+            <span class="archive-post-date">07/25</span><a class="archive-post-title" href= "/2019/07/25/10.the-thing-of-job/" >工作这点破事</a>
         </li>
     
     
@@ -1389,6 +1414,8 @@ height:50vh;
         <span class="sidebar-tag-name" data-tags="续"><span class="iconfont-archer">&#xe606;</span>续</span>
     
         <span class="sidebar-tag-name" data-tags="阶层,跃迁,低端问题"><span class="iconfont-archer">&#xe606;</span>阶层,跃迁,低端问题</span>
+    
+        <span class="sidebar-tag-name" data-tags="CTF,技术"><span class="iconfont-archer">&#xe606;</span>CTF,技术</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
