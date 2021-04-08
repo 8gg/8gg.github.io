@@ -1,0 +1,1720 @@
+<!DOCTYPE html>
+<html lang="">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="8gg">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="8gg">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>金风细雨楼</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <a class="home-link" href=/>明月映空</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+">
+    
+    <!-- 主页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main index-page">
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/30/14.play_with_docker/" >
+            
+                <span>docker折腾手记</span>
+        </a>
+        <div class="abstract-content">
+            Docker是啥&amp;有啥用我也不知道是啥，就知道是一种比虚拟机更轻量级的东西，关于Docker有太多的文章，像阮老师也写了一篇https://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html 。
+Docker的好处是让你的软件自带环境。
+另外，Docker还可以模拟各种环境，而且还不像虚拟机那么重。
+比如在i春秋上做Web类的题目时，它就会下发一个Docker给你做测试环境。
+另外
+著名的Docker应用
+巡风（内网资产探测平台）
+CTFD（CTF答题平台）
+Vulhub（常见脆弱web平台）
+
+使用方法安装docker在Ce...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/30</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "docker,入门">docker,入门</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/29/13.why-programmers-like-to-share/" >
+            
+                <span>why programmers like to share</span>
+        </a>
+        <div class="abstract-content">
+            Maybe the technologies are growing so fast.
+The technologies can easily be out of date.
+They have to share ,to help each other .
+To make a circumlun that Informations can be exchanged
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/29</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "programmers,share">programmers,share</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/26/12.chrome-extension-crx-study/" >
+            
+                <span>chrome扩展程序研究(POST_MAN)</span>
+        </a>
+        <div class="abstract-content">
+            想要自己开发一个扩展，但不知道开发什么，果然还是没有强烈的痛点就不会动。我肯定是个痛点驱动的人。
+扩展开发其实扩展开发只要抓住manifest.json文件作为抓手，去开发。扩展程序本质上就是一个文件夹，里面有若干文件，最不可缺少的就是manifest.json文件，因为chrome会读取这个文件，查看里面的配置，以及扩展相关的页面。
+这样就能开发了，后面本质上还是代码的堆砌，以及对chrome浏览器的熟知程度，比如要熟悉使用chrome自带的API之类的。
+大概猜测也能知道这些API基本上就是操作已经打开的网页页面（Tabs）之类的东西。
+由于没有什么痛点和目标，所以chrome插件只...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/26</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "crx,extension,扩展">crx,extension,扩展</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/26/11.who-is-hero/" >
+            
+                <span>说英雄，谁是英雄</span>
+        </a>
+        <div class="abstract-content">
+            最近有空的时候就继续在看《温柔一刀》和《一怒拔剑》。
+感觉这个书就是写的某些部分很好看，某些部分很智障，我用语音朗读在看的，特别在累的时候，很容易沉迷其中。
+我发现自己累的时候，也会沉迷于游戏，如果是刚睡醒，比较有精神的时候，反而不怎么沉迷，可能是因为老了，觉得时间珍贵。
+这个系列的书写的是还不错，人物塑造的也不错，就是太冗长了，加入了一系列有七没八的人，什么张炭，唐宝牛，方恨少之类的，而且一说说一坨，看的时候就只能跳着看了。
+主线写的还不错，要是有人出个脱水版故事概要就好了。
+真的是老了，人到中年，就觉得时间还是挺宝贵的，舍不得花在看这些书上，但实际上如果去刷微信公众号之类的，也没什么...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/26</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "小说,王小石,白愁飞,苏梦枕">小说,王小石,白愁飞,苏梦枕</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/25/10.the-fucking-thing-of-job/" >
+            
+                <span>工作这点破事</span>
+        </a>
+        <div class="abstract-content">
+            前言当你费劲千辛万苦找到一个工作时，接下去的日子里，你精力最好大部分时间里，将和你的工作打交道，和你的同事打交道。
+就像卖给了公司一样。
+工作内容如果工作内容不是你喜欢的，我想估计会很难受。因为你基本上大部分时间都是在工作的。
+我不懂有没有程序员会喜欢他的工作内容，因为我感觉兴趣总是飘忽不定的东西，做出一个好东西固然会有很大的成就感，但有时候，还是会有挫败感。还有经常被打断，被各种杂事滋扰。
+自我提升基本上自我提升是只能靠自己，工作只是给你一个环境，如果你能在这个环境好好生存下来，基本上你就长本事了，很少能遇到靠谱的人带，另外，需要别人带的人基本不靠谱，但有时候别人的点拨又是那么的重要。...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/25</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "工作,摸鱼,程序员,IT">工作,摸鱼,程序员,IT</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/25/9.tampermonkey-on-VUE/" >
+            
+                <span>解决了VUE前端上面的Tampermonkey自动填充编写</span>
+        </a>
+        <div class="abstract-content">
+            前言这个问题困了我好久，起因是我喜欢用tampermonkey编写一些自动填充的脚本。
+一般的网页，就是
+1document.getElementById(&quot;YourID&quot;).value= &quot;XXXX&quot;;
+
+或者
+1$(&quot;#yourid&quot;).value=&quot;xxx&quot;;
+
+就行了，没想到去修改VUE网页的，直接就是刚把值修改完，点击提交，框里的值瞬间又没了。令人崩溃，所以就开始研究VUE。到现在也没研究出VUE是什么原理，大概知道，它有点前端 数据驱动的意思，表面的DOM只是展示的，只有后面的数据才是真正的。
+后...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/25</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "tampermonkey,VUE,欺骗">tampermonkey,VUE,欺骗</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/23/8.low-class-problems-and-stupid-problems/" >
+            
+                <span>低端问题和傻逼问题</span>
+        </a>
+        <div class="abstract-content">
+            前言这是个非常重要的话题。如果能参透感觉是可以实现阶层的跃迁。
+起因是有一天我在看刘毓卿直播的过程中，他提到的，
+
+“我不解决低端问题和傻逼问题，我也不擅长解决低端问题和傻逼问题，只有你们这些傻逼才会去想办法解决傻逼问题。” 
+
+定义那么，什么是低端问题和傻逼问题呢。
+发挥下想象力，比如说，
+
+一个穷屌丝，整天研究，要说什么话，才能吸引到女神？
+一个流水线重复劳动工人，整天研究怎么提高手工组装零件的速度。
+一个程序员整天研究怎么运维一个内部代码混乱、而且技术过时的系统。
+一个程序员整天疲于响应业务人员的系统运维请求，陷入“救火式”运维。
+
+分析下面说下自己的看法，可能有很严重的错误（因为...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/23</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "傻逼问题,阶层,跃迁,低端问题">傻逼问题,阶层,跃迁,低端问题</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/20/7.Simple-httpServer/" >
+            
+                <span>Python的SimpleHTTPServer让文件夹秒变多线程服务器</span>
+        </a>
+        <div class="abstract-content">
+            使用场景我在VPS上面，用youtube-dl下载了视频，这时候想要传回来，发现用SSH传速度太慢了。
+这时候，就可以直接运行一句代码
+1python -m SimpleHTTPServer  8001
+就可以在当前文件夹搭建一个文件服务器。可以实现快速下载。
+存在问题由于它太简单，所以只支持单线程，你在使用的时候会发现，当你在下载某个文件的同时，如果再次访问服务器，就会发现，基本上是卡住的。
+这时候应该需要进行多线程改造。
+多线程代码1234567891011121314151617181920# _*_ coding: utf-8 _*_import socketimport Soc...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/20</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "vps,python, 文件下载">vps,python, 文件下载</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/20/EnglishLearning/how-I-became-David-Deangelo-The-PUA/" >
+            
+                <span>how I became David Deangelo The PUA</span>
+        </a>
+        <div class="abstract-content">
+            How I became david deangelo  THE PICK UP ARTISThttps://www.youtube.com/watch?v=G8xmYgNVO4A
+Speech to Text manually.
+London Real:
+The David D years,upsides and downsides of being that guy for 5 or 6 years, like you know.Are you seem   actually like more of introversion of that guy or more extraver...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/20</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "English,Learning,PUA,David,Deangelo">English,Learning,PUA,David,Deangelo</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/19/5.how-to-use-github/" >
+            
+                <span>怎么使用github</span>
+        </a>
+        <div class="abstract-content">
+            github是什么每个人都会告诉你这是个代码托管平台。但实际上我认为它还是个通过代码托管的一个泛社交平台。可以和一些程序员名人互动，看看他们在搞什么程序。所以玩github 是一定要注册账号的。
+可以用github做什么
+ 代码托管
+ 个人学习经验的记录平台
+ 搭建博客
+ 认识各种人，左右观察
+
+怎么使用很难，要研究。又要commit又要push。有时候还报各种7788的 错误，但是研究透了估计也就那样。
+免密推送1git remote add origin git@github.com:SoulGithhhh&#x2F;blogBak.git
+其中这个origin只是个名字而已，可以随...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "github">github</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/19/EnglishLearning/1-Eng-learn-words-start-with-A/" >
+            
+                <span>1.Eng learn words start with A</span>
+        </a>
+        <div class="abstract-content">
+            I am always wondering how to become a pratical English User.Not Leaning English ,but use it ,But I found it so hard to do this .I am trying again.and again and again.
+Wordaffiliatepersonal definitionv.  to connect or to form a group of peoplen. A group of people who share the same business intere...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "English,Learning">English,Learning</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/19/4.personal-internet-experience/" >
+            
+                <span>个人电子计算机互联网经验史</span>
+        </a>
+        <div class="abstract-content">
+            等我老了，我就出一张专辑，名字叫《智障》，英文名叫《Stupid》
+愿我此生唯一自传，如同诗一般。无论多远未来，读来依然一字一句一篇都灿烂。
+1996Dos，windows3.1，Dos游戏 Fox、Mario(超级玛丽)炒股软件（钱龙）：广播电视信号转化为股票数据信号，当时价格约为3w多一套。
+1997windows95，KKND绝地风暴。
+1998仙剑奇侠传98柔情版洪恩教育小博士，开天辟地红白机，超级玛丽、坦克大战、魂斗罗，打鸭子星际争霸
+1999kv300洪恩万事无忧KKND2 风起云涌红色警戒盗版游戏光盘电视上有个节目，和游戏有关的，忘了叫啥，整天介绍最终幻想。
+2000拨号上...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "互联网,历史,自传">互联网,历史,自传</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/14/2.hexo_setup_experience/" >
+            
+                <span>hexo博客折腾记</span>
+        </a>
+        <div class="abstract-content">
+            缘起　　我一般写博客，纯粹就是，乱写，瞎写。　　什么简单写什么，什么不费脑写什么。　　那我为什么要去折腾hexo呢？　　因为看到，有人通过hexo搭建了一个在github的博客。　　这种做法很好。省了一台服务器，同时又因为是静态的页面，部署在大平台上，不容易受到攻击。而且跟新浪博客之类的应用平台又不一样，自己可定制的部分比较多。同时又没有广告。　　所以想要尝试一下。但是，学一样东西往往都是有门槛跟时间的，最不好的一种情况就是，你花了时间，然后毛都没学到。　　但实际上也好过把时间花在刷各种有七没八的文章，看各种有七没八的视频好，我可能是前段时间发烧好了之后，突然对那些东西没兴趣了，与其看别...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/14</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "hexo,github,node,前端,ssh">hexo,github,node,前端,ssh</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/14/3.time_as_a_friend/" >
+            
+                <span>把时间当作朋友</span>
+        </a>
+        <div class="abstract-content">
+            https://raw.githubusercontent.com/xiaolai/time-as-a-friend/master/Chapter0.md
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/14</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "时间,time">时间,time</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/13/1.a-40-years-old-beginner/" >
+            
+                <span>一个40岁的新人</span>
+        </a>
+        <div class="abstract-content">
+            为什么标题叫做40岁的新人(a 40 years old beginner)。
+感觉自己是一个老人，另外，自己做什么事情都是停留在表面。一直都在开始，一直都在起跑线，然后忘记。然后再另一个起跑线继续。
+作为一个程序员，理论上应该要有一台好的电脑才对，但可惜公司的电脑很烂，自己也懒得换。虽然自己到了前一年才真正意义上给自己买了台好电脑，但又舍不得带去公司，想给自己留个自留地。总是会很被害妄想会有流量监控之类的东西，然后窥视我的思想。自己总是认为自己的思想很值钱似的。
+不知道为啥一时兴起突然想折腾github博客，可能原因是看到别人在弄，其实从去年就知道github博客了。一拖拖了1年。现在...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/13</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "sb,old,programmer,老人家,老程序员,aging">sb,old,programmer,老人家,老程序员,aging</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    <!-- paginator  -->
+    
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:12345@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/8gg" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 33
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2022 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/2022/07/20/To-Do-List/" >To Do List</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2021 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2021/04/08/29.2021-rewriting/" >2021-rewriting.md</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/07</span><a class="archive-post-title" href= "/2021/04/07/hello-world/" >Hello World</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2019/11/01/28.October-Summary/" >October Summary(Focus on Json Processing and Regular Expressions)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/17</span><a class="archive-post-title" href= "/2019/10/17/6.Story-of-buying-computer/" >买华硕飞行堡垒的故事</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2019/10/15/27.Is-coding-useless/" >写代码到底有没有用？顺便回顾下自己的技术栈</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/08</span><a class="archive-post-title" href= "/2019/10/08/26.September-Summary/" >September Summary(Focus on Nothing)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/29</span><a class="archive-post-title" href= "/2019/09/29/25.The-Most-Dangerous-Writing-App/" >世界上最危险的编辑器（APP推荐）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/01</span><a class="archive-post-title" href= "/2019/09/01/24.August-Summary/" >August Summary(Focus on CTF surfacing)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/22</span><a class="archive-post-title" href= "/2019/08/22/23.kanxue-ollydbg/" >看雪ollydbg教程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/15</span><a class="archive-post-title" href= "/2019/08/15/22.education_src/" >教育行业漏洞报告平台（兼谈高校专业课老师的作用）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/14</span><a class="archive-post-title" href= "/2019/08/14/21.linux-ssh-shell-find/" >知道ip，如何猜它ssh端口</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/06</span><a class="archive-post-title" href= "/2019/08/06/19.sleep-in-js/" >JS当中的sleep</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/06</span><a class="archive-post-title" href= "/2019/08/06/20.combine-sheets-in-excel/" >Excel当中的各个sheet合并</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/05</span><a class="archive-post-title" href= "/2019/08/05/18.cut-videos-with-ffmpeg/" >Centos7 安装ffmpeg用来切分、压缩视频</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/02</span><a class="archive-post-title" href= "/2019/08/02/17.July-Summary/" >July Summary(Focus on English learning)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/02</span><a class="archive-post-title" href= "/2019/08/02/16.hexo-pic/" >Hexo载入图片</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/01</span><a class="archive-post-title" href= "/2019/08/01/15.hexo_theme/" >Hexo主题Archer配色</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/30</span><a class="archive-post-title" href= "/2019/07/30/14.play_with_docker/" >docker折腾手记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/29</span><a class="archive-post-title" href= "/2019/07/29/13.why-programmers-like-to-share/" >why programmers like to share</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2019/07/26/12.chrome-extension-crx-study/" >chrome扩展程序研究(POST_MAN)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/26</span><a class="archive-post-title" href= "/2019/07/26/11.who-is-hero/" >说英雄，谁是英雄</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/25</span><a class="archive-post-title" href= "/2019/07/25/10.the-fucking-thing-of-job/" >工作这点破事</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/25</span><a class="archive-post-title" href= "/2019/07/25/9.tampermonkey-on-VUE/" >解决了VUE前端上面的Tampermonkey自动填充编写</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/23</span><a class="archive-post-title" href= "/2019/07/23/8.low-class-problems-and-stupid-problems/" >低端问题和傻逼问题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/2019/07/20/7.Simple-httpServer/" >Python的SimpleHTTPServer让文件夹秒变多线程服务器</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/2019/07/20/EnglishLearning/how-I-became-David-Deangelo-The-PUA/" >how I became David Deangelo The PUA</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2019/07/19/5.how-to-use-github/" >怎么使用github</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2019/07/19/EnglishLearning/1-Eng-learn-words-start-with-A/" >1.Eng learn words start with A</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2019/07/19/4.personal-internet-experience/" >个人电子计算机互联网经验史</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/14</span><a class="archive-post-title" href= "/2019/07/14/2.hexo_setup_experience/" >hexo博客折腾记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/14</span><a class="archive-post-title" href= "/2019/07/14/3.time_as_a_friend/" >把时间当作朋友</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/13</span><a class="archive-post-title" href= "/2019/07/13/1.a-40-years-old-beginner/" >一个40岁的新人</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="tampermonkey,VUE,欺骗"><span class="iconfont-archer">&#xe606;</span>tampermonkey,VUE,欺骗</span>
+    
+        <span class="sidebar-tag-name" data-tags="crx,extension,扩展"><span class="iconfont-archer">&#xe606;</span>crx,extension,扩展</span>
+    
+        <span class="sidebar-tag-name" data-tags="时间,time"><span class="iconfont-archer">&#xe606;</span>时间,time</span>
+    
+        <span class="sidebar-tag-name" data-tags="hexo,github,node,前端,ssh"><span class="iconfont-archer">&#xe606;</span>hexo,github,node,前端,ssh</span>
+    
+        <span class="sidebar-tag-name" data-tags="Hexo,主题,配色"><span class="iconfont-archer">&#xe606;</span>Hexo,主题,配色</span>
+    
+        <span class="sidebar-tag-name" data-tags="小说,王小石,白愁飞,苏梦枕"><span class="iconfont-archer">&#xe606;</span>小说,王小石,白愁飞,苏梦枕</span>
+    
+        <span class="sidebar-tag-name" data-tags="July,Summary"><span class="iconfont-archer">&#xe606;</span>July,Summary</span>
+    
+        <span class="sidebar-tag-name" data-tags="mdwa,编辑器,life-hack"><span class="iconfont-archer">&#xe606;</span>mdwa,编辑器,life-hack</span>
+    
+        <span class="sidebar-tag-name" data-tags="hexo,图片"><span class="iconfont-archer">&#xe606;</span>hexo,图片</span>
+    
+        <span class="sidebar-tag-name" data-tags="Coding,人参指南,技术栈"><span class="iconfont-archer">&#xe606;</span>Coding,人参指南,技术栈</span>
+    
+        <span class="sidebar-tag-name" data-tags="互联网,历史,自传"><span class="iconfont-archer">&#xe606;</span>互联网,历史,自传</span>
+    
+        <span class="sidebar-tag-name" data-tags="github"><span class="iconfont-archer">&#xe606;</span>github</span>
+    
+        <span class="sidebar-tag-name" data-tags="docker,入门"><span class="iconfont-archer">&#xe606;</span>docker,入门</span>
+    
+        <span class="sidebar-tag-name" data-tags="src,高校,计算机专业课,大学"><span class="iconfont-archer">&#xe606;</span>src,高校,计算机专业课,大学</span>
+    
+        <span class="sidebar-tag-name" data-tags="programmers,share"><span class="iconfont-archer">&#xe606;</span>programmers,share</span>
+    
+        <span class="sidebar-tag-name" data-tags="ssh,linux"><span class="iconfont-archer">&#xe606;</span>ssh,linux</span>
+    
+        <span class="sidebar-tag-name" data-tags="ollydbg,逆向"><span class="iconfont-archer">&#xe606;</span>ollydbg,逆向</span>
+    
+        <span class="sidebar-tag-name" data-tags="sb,old,programmer,老人家,老程序员,aging"><span class="iconfont-archer">&#xe606;</span>sb,old,programmer,老人家,老程序员,aging</span>
+    
+        <span class="sidebar-tag-name" data-tags="工作,摸鱼,程序员,IT"><span class="iconfont-archer">&#xe606;</span>工作,摸鱼,程序员,IT</span>
+    
+        <span class="sidebar-tag-name" data-tags="买电脑,故事"><span class="iconfont-archer">&#xe606;</span>买电脑,故事</span>
+    
+        <span class="sidebar-tag-name" data-tags="vps,python, 文件下载"><span class="iconfont-archer">&#xe606;</span>vps,python, 文件下载</span>
+    
+        <span class="sidebar-tag-name" data-tags="todo"><span class="iconfont-archer">&#xe606;</span>todo</span>
+    
+        <span class="sidebar-tag-name" data-tags="October,Summary"><span class="iconfont-archer">&#xe606;</span>October,Summary</span>
+    
+        <span class="sidebar-tag-name" data-tags="English,Learning"><span class="iconfont-archer">&#xe606;</span>English,Learning</span>
+    
+        <span class="sidebar-tag-name" data-tags="English,Learning,PUA,David,Deangelo"><span class="iconfont-archer">&#xe606;</span>English,Learning,PUA,David,Deangelo</span>
+    
+        <span class="sidebar-tag-name" data-tags="ffmpeg,Centos7,视频切分,视频压缩"><span class="iconfont-archer">&#xe606;</span>ffmpeg,Centos7,视频切分,视频压缩</span>
+    
+        <span class="sidebar-tag-name" data-tags="javascript,sleep"><span class="iconfont-archer">&#xe606;</span>javascript,sleep</span>
+    
+        <span class="sidebar-tag-name" data-tags="Excel,sheet,合并"><span class="iconfont-archer">&#xe606;</span>Excel,sheet,合并</span>
+    
+        <span class="sidebar-tag-name" data-tags="August,Summary"><span class="iconfont-archer">&#xe606;</span>August,Summary</span>
+    
+        <span class="sidebar-tag-name" data-tags="September,Summary"><span class="iconfont-archer">&#xe606;</span>September,Summary</span>
+    
+        <span class="sidebar-tag-name" data-tags="傻逼问题,阶层,跃迁,低端问题"><span class="iconfont-archer">&#xe606;</span>傻逼问题,阶层,跃迁,低端问题</span>
+    
+        <span class="sidebar-tag-name" data-tags="续"><span class="iconfont-archer">&#xe606;</span>续</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="微技术扯淡"><span class="iconfont-archer">&#xe60a;</span>微技术扯淡</span>
+    
+        <span class="sidebar-category-name" data-categories="扯淡"><span class="iconfont-archer">&#xe60a;</span>扯淡</span>
+    
+        <span class="sidebar-category-name" data-categories="技术"><span class="iconfont-archer">&#xe60a;</span>技术</span>
+    
+        <span class="sidebar-category-name" data-categories="English"><span class="iconfont-archer">&#xe60a;</span>English</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "8gg"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+     
+    </body>
+</html>
+
+
